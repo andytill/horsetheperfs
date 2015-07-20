@@ -36,3 +36,9 @@ horse_perf_test() ->
 ```
 
 Each horse function is run and timed in its own function so that garbage collection from other tests will not affect the results.
+
+### How to profile tests
+
+Tests can be profiled using [eflame](https://github.com/slfritchie/eflame) by changing the first part of the test name from `horse_` to `horse_eflame_`. When this is run using `make perfs` tracing is applied while the test function is executed and a flame graph is generated in the profiling directory.
+
+Running the test with eflame profiling turned on takes much longer than without, so is only supposed to be temporary for debugging and the test duration is not a useful measurement in itself.  For this reason, the text **PROFILING** is output at the end of the result line to make this obvious.
